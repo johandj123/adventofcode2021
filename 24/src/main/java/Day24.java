@@ -3,7 +3,6 @@ import org.sosy_lab.java_smt.api.*;
 import org.sosy_lab.java_smt.api.NumeralFormula.IntegerFormula;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,6 +51,10 @@ public class Day24 {
             constraints.add(imgr.equal(digits[8], imgr.makeNumber(6)));
             constraints.add(imgr.equal(digits[9], imgr.makeNumber(1)));
 
+            constraints.add(imgr.equal(getVar("w"), imgr.makeNumber(0)));
+            constraints.add(imgr.equal(getVar("x"), imgr.makeNumber(0)));
+            constraints.add(imgr.equal(getVar("y"), imgr.makeNumber(0)));
+            constraints.add(imgr.equal(getVar("z"), imgr.makeNumber(0)));
             for (Instruction instruction : instructions) {
                 IntegerFormula result = getNextVar(instruction.var1);
                 if (instruction.op == Op.INP) {
